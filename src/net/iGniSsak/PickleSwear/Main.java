@@ -18,7 +18,7 @@ public class Main extends JavaPlugin implements Listener {
         for (String word : e.getMessage().split(" ")) {
             if (getConfig().getStringList("disabledwords").contains(word)) {
                 e.setCancelled(true);
-                e.getPlayer().sendMessage(getConfig().getString("msg"));
+                e.getPlayer().sendMessage(getConfig().getString("messages.antiswear"));
             }
             for (Player all : Bukkit.getOnlinePlayers()) {
                 if (all.hasPermission("pickleswear.see")) {
@@ -44,11 +44,11 @@ public class Main extends JavaPlugin implements Listener {
         public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
             if (command.getName().equalsIgnoreCase("picklereload")) {
                 if(!sender.hasPermission("pickleswear.reload")) {
-                    sender.sendMessage(getConfig().getString("noperm"));
+                    sender.sendMessage(getConfig().getString("messages.noperm"));
                     return true;
                 }
                     reloadConfig();
-                    sender.sendMessage(ChatColor.GREEN + "Pickles were reloaded! :3");
+                    sender.sendMessage(getConfig().getString("messages.reload"));
                     return true;
             } return true;
         }

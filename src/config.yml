@@ -6,7 +6,9 @@ disabledwords:
   - ilikenuts
 
 # Messages
+messages:
 # If player swears
-msg: §4Stop swearing you pickle!
+  antiswear: §4Stop swearing you pickle!
 # If player doesnt have permission to reload configuration
-noperm: §cNo permission :(
+  noperm: §cNo permission :(
+  reload: §aRick the Pickle reloaded the configuration!
