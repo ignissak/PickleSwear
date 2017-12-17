@@ -1,6 +1,12 @@
+# Add here words that should be forbidden
 disabledwords:
   - igniss
   - justanotherone
   - thirdword
   - ilikenuts
+
+# Messages
+# If player swears
 msg: Stop swearing you pickle!
+# If player doesnt have permission to reload configuration
+noperm: No permission :(

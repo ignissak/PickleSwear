@@ -2,3 +2,11 @@ name: PickleSwear
 author: iGniSsak
 version: "1.0"
 main: net.iGniSsak.PickleSwear.Main
+commands:
+  picklereload:
+    description: Reload configuration!
+    usage: /<command>
+permission:
+  pickleswear.reload:
+    description: Access to reload configuration
+    default: op
