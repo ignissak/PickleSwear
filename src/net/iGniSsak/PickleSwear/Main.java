@@ -19,6 +19,7 @@ public class Main extends JavaPlugin implements Listener {
         String message = e.getMessage().toLowerCase();
         java.util.List<String> badwords = getConfig().getStringList("disabledwords");
         for (String word : badwords) {
+            message = message.replace(" ", "");
             if (message.contains(word)) {
                 if (e.getPlayer().hasPermission("pickleswear.bypass")) return;
                     e.setCancelled(true);
@@ -27,6 +28,7 @@ public class Main extends JavaPlugin implements Listener {
                     if (all.hasPermission("pickleswear.see")) {
                         all.sendMessage("§cPlayer " + e.getPlayer().getName() + " said bad word! ");
                         all.sendMessage("§cCensored word: " + word);
+                        all.sendMessage("§cCensored sentence: " + e.getMessage());
                     }
                 }
             }
