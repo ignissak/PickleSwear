@@ -1,6 +1,6 @@
 name: PickleSwear
 author: iGniSsak
-version: "1.2.2"
+version: "1.2.3"
 main: net.iGniSsak.PickleSwear.Main
 commands:
   picklereload:

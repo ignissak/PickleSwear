@@ -19,11 +19,11 @@ public class Main extends JavaPlugin implements Listener {
             if (getConfig().getStringList("disabledwords").contains(word)) {
                 e.setCancelled(true);
                 e.getPlayer().sendMessage(getConfig().getString("messages.antiswear"));
-            }
-            for (Player all : Bukkit.getOnlinePlayers()) {
-                if (all.hasPermission("pickleswear.see")) {
-                    all.sendMessage("§cPlayer " + e.getPlayer().getName() + " said bad word! ");
-                    all.sendMessage("§cCensored word: " + word);
+                for (Player all : Bukkit.getOnlinePlayers()) {
+                    if (all.hasPermission("pickleswear.see")) {
+                        all.sendMessage("§cPlayer " + e.getPlayer().getName() + " said bad word! ");
+                        all.sendMessage("§cCensored word: " + word);
+                    }
                 }
             }
         }

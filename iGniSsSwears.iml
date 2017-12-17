@@ -11,5 +11,6 @@
     <orderEntry type="library" name="spigot-1.10.2-R0.1-SNAPSHOT-latest" level="project" />
     <orderEntry type="library" name="spigot-1.12" level="project" />
     <orderEntry type="library" name="spigot-1.9-R0.1-SNAPSHOT-latest" level="project" />
+    <orderEntry type="library" name="spigot-1.8-R0.1-SNAPSHOT-latest" level="project" />
   </component>
 </module>
