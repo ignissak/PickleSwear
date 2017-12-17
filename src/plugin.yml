@@ -1,6 +1,6 @@
 name: PickleSwear
 author: iGniSsak
-version: "1.0"
+version: "1.2"
 main: net.iGniSsak.PickleSwear.Main
 commands:
   picklereload:
@@ -9,4 +9,7 @@ commands:
 permission:
   pickleswear.reload:
     description: Access to reload configuration
+    default: op
+  pickleswear.see:
+    description: Can see players who swears
     default: op

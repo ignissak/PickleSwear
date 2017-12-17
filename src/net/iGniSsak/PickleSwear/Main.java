@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -18,6 +19,12 @@ public class Main extends JavaPlugin implements Listener {
             if (getConfig().getStringList("disabledwords").contains(word)) {
                 e.setCancelled(true);
                 e.getPlayer().sendMessage(ChatColor.DARK_RED + getConfig().getString("msg"));
+            }
+            for (Player all : Bukkit.getOnlinePlayers()) {
+                if (all.hasPermission("pickleswear.see")) {
+                    all.sendMessage("§cPlayer " + e.getPlayer().getName() + " said bad word! ");
+                    all.sendMessage("§cCensored word: " + word);
+                }
             }
         }
     }
