@@ -7,6 +7,6 @@ disabledwords:
 
 # Messages
 # If player swears
-msg: Stop swearing you pickle!
+msg: §4Stop swearing you pickle!
 # If player doesnt have permission to reload configuration
-noperm: No permission :(
+noperm: §cNo permission :(
