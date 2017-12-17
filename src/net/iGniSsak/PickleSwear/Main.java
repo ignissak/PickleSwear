@@ -16,13 +16,13 @@ public class Main extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent e) {
         Player player = e.getPlayer();
-        String message = e.getMessage();
+        String message = e.getMessage().toLowerCase();
         java.util.List<String> badwords = getConfig().getStringList("disabledwords");
         for (String word : badwords) {
             if (message.contains(word)) {
                 if (e.getPlayer().hasPermission("pickleswear.bypass")) return;
-                e.setCancelled(true);
-                e.getPlayer().sendMessage(getConfig().getString("messages.antiswear"));
+                    e.setCancelled(true);
+                    e.getPlayer().sendMessage(getConfig().getString("messages.antiswear"));
                 for (Player all : Bukkit.getOnlinePlayers()) {
                     if (all.hasPermission("pickleswear.see")) {
                         all.sendMessage("§cPlayer " + e.getPlayer().getName() + " said bad word! ");
