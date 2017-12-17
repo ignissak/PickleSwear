@@ -1,7 +1,6 @@
 package net.iGniSsak.PickleSwear;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -13,10 +12,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 // Created by iGniSsak
 public class Main extends JavaPlugin implements Listener {
+
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent e) {
-        for (String word : e.getMessage().split(" ")) {
-            if (getConfig().getStringList("disabledwords").contains(word)) {
+        Player player = e.getPlayer();
+        String message = e.getMessage();
+        java.util.List<String> badwords = getConfig().getStringList("disabledwords");
+        for (String word : badwords) {
+            if (message.contains(word)) {
+                if (e.getPlayer().hasPermission("pickleswear.bypass")) return;
                 e.setCancelled(true);
                 e.getPlayer().sendMessage(getConfig().getString("messages.antiswear"));
                 for (Player all : Bukkit.getOnlinePlayers()) {

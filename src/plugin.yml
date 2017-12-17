@@ -1,6 +1,6 @@
 name: PickleSwear
 author: iGniSsak
-version: "1.2.3"
+version: "1.2.4"
 main: net.iGniSsak.PickleSwear.Main
 commands:
   picklereload:
@@ -12,4 +12,7 @@ permission:
     default: op
   pickleswear.see:
     description: Can see players who swears
+    default: op
+  pickleswear.bypass:
+    description: Plugin doesnt affect player's messages
     default: op
