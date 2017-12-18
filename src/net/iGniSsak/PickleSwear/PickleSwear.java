@@ -11,29 +11,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 
 // Created by iGniSsak
-public class Main extends JavaPlugin implements Listener {
+public class PickleSwear extends JavaPlugin implements Listener {
 
-    @EventHandler
-    public void onPlayerChat(AsyncPlayerChatEvent e) {
-        Player player = e.getPlayer();
-        String message = e.getMessage().toLowerCase();
-        java.util.List<String> badwords = getConfig().getStringList("disabledwords");
-        for (String word : badwords) {
-            message = message.replace(" ", "");
-            if (message.contains(word)) {
-                if (e.getPlayer().hasPermission("pickleswear.bypass")) return;
-                    e.setCancelled(true);
-                    e.getPlayer().sendMessage(getConfig().getString("messages.antiswear"));
-                for (Player all : Bukkit.getOnlinePlayers()) {
-                    if (all.hasPermission("pickleswear.see")) {
-                        all.sendMessage("§cPlayer " + e.getPlayer().getName() + " said bad word! ");
-                        all.sendMessage("§cCensored word: " + word);
-                        all.sendMessage("§cCensored sentence: " + e.getMessage());
-                    }
-                }
-            }
-        }
-    }
+
+
     @Override
     public void onEnable() {
         Bukkit.getServer().getLogger().info("[Enabled] I like swears! :3");
