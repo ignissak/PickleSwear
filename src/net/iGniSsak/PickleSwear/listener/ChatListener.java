@@ -1,6 +1,7 @@
 package net.iGniSsak.PickleSwear.listener;
 
 import net.iGniSsak.PickleSwear.PickleSwear;
+import net.iGniSsak.PickleSwear.SettingsManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,6 +13,7 @@ import java.util.List;
 public class ChatListener implements Listener {
 
     private PickleSwear pickleSwear;
+    SettingsManager settings = SettingsManager.getInstance();
 
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent e) {
@@ -28,9 +30,9 @@ public class ChatListener implements Listener {
 
                 for (Player all : Bukkit.getOnlinePlayers()) {
                     if (all.hasPermission("pickleswear.see")) {
-                        all.sendMessage("§cPlayer " + e.getPlayer().getName() + " said bad word! ");
-                        all.sendMessage("§cCensored word: " + word);
-                        all.sendMessage("§cCensored sentence: " + e.getMessage());
+                        all.sendMessage(settings.getConfig().getString("announce-messages.first").replace("%player", e.getPlayer().getName()));
+                        all.sendMessage(settings.getConfig().getString("announce-messages.second").replace("%word%", word));
+                        all.sendMessage(settings.getConfig().getString("announce-messages.third").replace("%sentence%", e.getMessage()));
                     }
                 }
             }

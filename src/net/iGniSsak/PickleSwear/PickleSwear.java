@@ -1,5 +1,7 @@
 package net.iGniSsak.PickleSwear;
 
+import net.iGniSsak.PickleSwear.commands.Reload;
+import net.iGniSsak.PickleSwear.listener.ChatListener;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -14,29 +16,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class PickleSwear extends JavaPlugin implements Listener {
 
 
-
     @Override
     public void onEnable() {
         Bukkit.getServer().getLogger().info("[Enabled] I like swears! :3");
-        Bukkit.getServer().getPluginManager().registerEvents(this, this);
+        Bukkit.getServer().getPluginManager().registerEvents(new ChatListener(), this);
         getConfig().options().copyDefaults(true);
         saveConfig();
+        this.getCommand("pickleswear").setExecutor(new Reload());
     }
+
     @Override
     public void onDisable() {
         Bukkit.getServer().getLogger().info("[Disabled] RIP swears. :(");
     }
-
-        @Override
-        public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-            if (command.getName().equalsIgnoreCase("picklereload")) {
-                if(!sender.hasPermission("pickleswear.reload")) {
-                    sender.sendMessage(getConfig().getString("messages.noperm"));
-                    return true;
-                }
-                    reloadConfig();
-                    sender.sendMessage(getConfig().getString("messages.reload"));
-                    return true;
-            } return true;
-        }
-    }
+}

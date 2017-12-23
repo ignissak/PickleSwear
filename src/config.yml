@@ -1,14 +1,14 @@
-# Add here words that should be forbidden
+# PickleSwear config.yml
 disabledwords:
   - igniss
   - justanotherone
   - thirdword
   - ilikenuts
-
-# Messages
 messages:
-# If player swears
   antiswear: §4Stop swearing you pickle!
-# If player doesnt have permission to reload configuration
   noperm: §cNo permission :(
   reload: §aRick the Pickle reloaded the configuration!
+announce-messages:
+  first: "§cPlayer §7%player% §csaid bad word!"
+  second: "§cCensored word: §7%word%"
+  third: "§cFull sentence: §7%sentence%"
