@@ -22,6 +22,13 @@ public class SettingsManager {
     FileConfiguration config;
     File cfile;
 
+    public void setup() {
+        config = p.getConfig();
+        config.options().copyDefaults(true);
+        cfile = new File(p.getDataFolder(), "config.yml");
+        saveConfig();
+    }
+
     public void saveConfig() {
         try {
             config.save(cfile);

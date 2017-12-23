@@ -10,13 +10,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 // Created by iGniSsak
 public class PickleSwear extends JavaPlugin implements Listener {
 
+    SettingsManager settings = SettingsManager.getInstance();
+
 
     @Override
     public void onEnable() {
         Bukkit.getServer().getLogger().info("[Enabled] I like swears! :3");
         Bukkit.getServer().getPluginManager().registerEvents(new ChatListener(), this);
-        getConfig().options().copyDefaults(true);
-        saveConfig();
+        settings.setup();
         this.getCommand("pickleswear").setExecutor(new Reload());
     }
 

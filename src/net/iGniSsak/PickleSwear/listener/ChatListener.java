@@ -1,6 +1,5 @@
 package net.iGniSsak.PickleSwear.listener;
 
-import net.iGniSsak.PickleSwear.PickleSwear;
 import net.iGniSsak.PickleSwear.SettingsManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
