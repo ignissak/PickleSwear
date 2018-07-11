@@ -1,9 +1,9 @@
 name: PickleSwear
 author: iGniSsak
-version: "1.2.6"
+version: "1.2.7"
 main: net.iGniSsak.PickleSwear.PickleSwear
 commands:
-  picklereload:
+  pickleswear:
     description: Reload configuration!
     usage: /<command>
 permission:
